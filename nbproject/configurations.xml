@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>engine/components/BoxCollider.hpp</itemPath>
+      <itemPath>engine/components/CircleCollider.hpp</itemPath>
+      <itemPath>engine/components/Collider.hpp</itemPath>
+      <itemPath>engine/Component.hpp</itemPath>
+      <itemPath>demo/CustomScript.hpp</itemPath>
+      <itemPath>demo/FirstGameObject.hpp</itemPath>
+      <itemPath>engine/GMEngine.hpp</itemPath>
+      <itemPath>engine/Game.hpp</itemPath>
+      <itemPath>engine/GameObject.hpp</itemPath>
+      <itemPath>engine/facade/Keyboard.hpp</itemPath>
+      <itemPath>demo/MyGame.hpp</itemPath>
+      <itemPath>engine/components/Renderer.hpp</itemPath>
+      <itemPath>engine/components/RigidBody.hpp</itemPath>
+      <itemPath>engine/Scene.hpp</itemPath>
+      <itemPath>engine/components/Script.hpp</itemPath>
+      <itemPath>engine/facade/Texture.hpp</itemPath>
+      <itemPath>engine/facade/Time.hpp</itemPath>
+      <itemPath>engine/components/Transform.hpp</itemPath>
+      <itemPath>engine/facade/Vector2.hpp</itemPath>
+      <itemPath>engine/facade/Window.hpp</itemPath>
+      <itemPath>demo/mainScene.hpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>engine/components/BoxCollider.cpp</itemPath>
+      <itemPath>engine/components/CircleCollider.cpp</itemPath>
+      <itemPath>engine/facade/Clock.cpp</itemPath>
+      <itemPath>engine/components/Collider.cpp</itemPath>
+      <itemPath>engine/Component.cpp</itemPath>
+      <itemPath>demo/CustomScript.cpp</itemPath>
+      <itemPath>demo/FirstGameObject.cpp</itemPath>
+      <itemPath>engine/Game.cpp</itemPath>
+      <itemPath>engine/GameObject.cpp</itemPath>
+      <itemPath>engine/facade/Keyboard.cpp</itemPath>
+      <itemPath>demo/MyGame.cpp</itemPath>
+      <itemPath>engine/components/Renderer.cpp</itemPath>
+      <itemPath>engine/components/RigidBody.cpp</itemPath>
+      <itemPath>engine/Scene.cpp</itemPath>
+      <itemPath>engine/components/Script.cpp</itemPath>
+      <itemPath>engine/facade/Texture.cpp</itemPath>
+      <itemPath>engine/facade/Time.cpp</itemPath>
+      <itemPath>engine/components/Transform.cpp</itemPath>
+      <itemPath>engine/facade/Vector2.cpp</itemPath>
+      <itemPath>engine/facade/Window.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>demo/mainScene.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>../../Game_Making/SFML-2.1/include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../../Game_Making/SFML-2.1/lib</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
+            <linkerLibLibItem>sfml-window</linkerLibLibItem>
+            <linkerLibLibItem>sfml-system</linkerLibLibItem>
+            <linkerLibLibItem>sfml-audio</linkerLibLibItem>
+            <linkerLibLibItem>sfml-network</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="demo/CustomScript.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/CustomScript.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/FirstGameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/FirstGameObject.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/MyGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/MyGame.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Component.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GMEngine.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Game.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/GameObject.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Scene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/BoxCollider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/BoxCollider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/CircleCollider.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="engine/components/CircleCollider.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="engine/components/Collider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Collider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Renderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Renderer.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/RigidBody.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/RigidBody.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Script.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Script.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Transform.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Transform.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Clock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Keyboard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Keyboard.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Texture.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Time.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Time.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Vector2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Vector2.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Window.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../../Game_Making/SFML-2.1/include</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../../Game_Making/SFML-2.1/lib</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
+            <linkerLibLibItem>sfml-window</linkerLibLibItem>
+            <linkerLibLibItem>sfml-system</linkerLibLibItem>
+            <linkerLibLibItem>sfml-audio</linkerLibLibItem>
+            <linkerLibLibItem>sfml-network</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="demo/CustomScript.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/CustomScript.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/FirstGameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/FirstGameObject.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/MyGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/MyGame.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Component.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GMEngine.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Game.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/GameObject.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/Scene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/BoxCollider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/BoxCollider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/CircleCollider.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="engine/components/CircleCollider.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="engine/components/Collider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Collider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Renderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Renderer.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/RigidBody.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/RigidBody.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Script.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Script.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/components/Transform.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/components/Transform.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Clock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Keyboard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Keyboard.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Texture.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Time.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Time.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Vector2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Vector2.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/facade/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/facade/Window.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
