@@ -18,6 +18,7 @@ Scene::~Scene() {
 }
 
 void Scene::addGameObject(GameObject *g) {
+    /*
     if(gameObjects.empty()) gameObjects.push_back(g);
     else{
         for(int i=0;i<gameObjects.size();i++){
@@ -28,7 +29,8 @@ void Scene::addGameObject(GameObject *g) {
         }
         gameObjects.push_back(g);
     }
-    
+    */
+    gameObjects.push_back(g);
     //gameObjects.back()->setup();
 }
 
