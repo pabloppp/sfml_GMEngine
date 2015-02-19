@@ -4,9 +4,9 @@
 #include "../engine/GMEngine.hpp"
 
 
-class FirstGameObject : public gme::GameObject{
+class Starship : public gme::GameObject{
 public:
-    FirstGameObject(std::string n) : gme::GameObject(n){};
+    Starship(std::string n) : gme::GameObject(n){};
     void setup();
 private:
 

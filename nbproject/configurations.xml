@@ -9,22 +9,24 @@
       <itemPath>engine/components/Collider.hpp</itemPath>
       <itemPath>engine/Component.hpp</itemPath>
       <itemPath>demo/CustomScript.hpp</itemPath>
-      <itemPath>demo/FirstGameObject.hpp</itemPath>
       <itemPath>engine/GMEngine.hpp</itemPath>
       <itemPath>engine/Game.hpp</itemPath>
       <itemPath>engine/GameObject.hpp</itemPath>
+      <itemPath>demo/JetParticle.hpp</itemPath>
       <itemPath>engine/facade/Keyboard.hpp</itemPath>
       <itemPath>demo/MyGame.hpp</itemPath>
       <itemPath>engine/components/Renderer.hpp</itemPath>
       <itemPath>engine/components/RigidBody.hpp</itemPath>
       <itemPath>engine/Scene.hpp</itemPath>
       <itemPath>engine/components/Script.hpp</itemPath>
+      <itemPath>demo/Starship.hpp</itemPath>
       <itemPath>engine/facade/Texture.hpp</itemPath>
       <itemPath>engine/facade/Time.hpp</itemPath>
       <itemPath>engine/components/Transform.hpp</itemPath>
       <itemPath>engine/facade/Vector2.hpp</itemPath>
       <itemPath>engine/facade/Window.hpp</itemPath>
       <itemPath>demo/mainScene.hpp</itemPath>
+      <itemPath>demo/particleDecay.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -39,15 +41,16 @@
       <itemPath>engine/components/Collider.cpp</itemPath>
       <itemPath>engine/Component.cpp</itemPath>
       <itemPath>demo/CustomScript.cpp</itemPath>
-      <itemPath>demo/FirstGameObject.cpp</itemPath>
       <itemPath>engine/Game.cpp</itemPath>
       <itemPath>engine/GameObject.cpp</itemPath>
+      <itemPath>demo/JetParticle.cpp</itemPath>
       <itemPath>engine/facade/Keyboard.cpp</itemPath>
       <itemPath>demo/MyGame.cpp</itemPath>
       <itemPath>engine/components/Renderer.cpp</itemPath>
       <itemPath>engine/components/RigidBody.cpp</itemPath>
       <itemPath>engine/Scene.cpp</itemPath>
       <itemPath>engine/components/Script.cpp</itemPath>
+      <itemPath>demo/Starship.cpp</itemPath>
       <itemPath>engine/facade/Texture.cpp</itemPath>
       <itemPath>engine/facade/Time.cpp</itemPath>
       <itemPath>engine/components/Transform.cpp</itemPath>
@@ -55,6 +58,7 @@
       <itemPath>engine/facade/Window.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>demo/mainScene.cpp</itemPath>
+      <itemPath>demo/particleDecay.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -99,17 +103,25 @@
       </item>
       <item path="demo/CustomScript.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="demo/FirstGameObject.cpp" ex="false" tool="1" flavor2="0">
+      <item path="demo/JetParticle.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="demo/FirstGameObject.hpp" ex="false" tool="3" flavor2="0">
+      <item path="demo/JetParticle.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="demo/MyGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/MyGame.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="demo/Starship.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/Starship.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/particleDecay.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/particleDecay.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -227,17 +239,25 @@
       </item>
       <item path="demo/CustomScript.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="demo/FirstGameObject.cpp" ex="false" tool="1" flavor2="0">
+      <item path="demo/JetParticle.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="demo/FirstGameObject.hpp" ex="false" tool="3" flavor2="0">
+      <item path="demo/JetParticle.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="demo/MyGame.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/MyGame.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="demo/Starship.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/Starship.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="demo/particleDecay.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/particleDecay.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>

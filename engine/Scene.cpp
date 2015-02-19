@@ -34,6 +34,22 @@ void Scene::addGameObject(GameObject *g) {
     //gameObjects.back()->setup();
 }
 
+void Scene::destroyGameObject(GameObject* g){
+    for(int i=0;i<gameObjects.size();i++){
+        if(gameObjects.at(i) == g){
+            gameObjects.erase(gameObjects.begin()+i);
+            delete g;
+            return;
+        }
+    }
+    
+}
+
+void Scene::instantiate(GameObject* g){
+    g->setup();
+    g->componentSetup();
+}
+
 std::vector<GameObject*> *Scene::getGameObjects(){
     return &gameObjects;
 }

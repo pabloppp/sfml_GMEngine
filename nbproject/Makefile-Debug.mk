@@ -36,9 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/demo/CustomScript.o \
-	${OBJECTDIR}/demo/FirstGameObject.o \
+	${OBJECTDIR}/demo/JetParticle.o \
 	${OBJECTDIR}/demo/MyGame.o \
+	${OBJECTDIR}/demo/Starship.o \
 	${OBJECTDIR}/demo/mainScene.o \
+	${OBJECTDIR}/demo/particleDecay.o \
 	${OBJECTDIR}/engine/Component.o \
 	${OBJECTDIR}/engine/Game.o \
 	${OBJECTDIR}/engine/GameObject.o \
@@ -88,20 +90,30 @@ ${OBJECTDIR}/demo/CustomScript.o: demo/CustomScript.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/CustomScript.o demo/CustomScript.cpp
 
-${OBJECTDIR}/demo/FirstGameObject.o: demo/FirstGameObject.cpp 
+${OBJECTDIR}/demo/JetParticle.o: demo/JetParticle.cpp 
 	${MKDIR} -p ${OBJECTDIR}/demo
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/FirstGameObject.o demo/FirstGameObject.cpp
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/JetParticle.o demo/JetParticle.cpp
 
 ${OBJECTDIR}/demo/MyGame.o: demo/MyGame.cpp 
 	${MKDIR} -p ${OBJECTDIR}/demo
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/MyGame.o demo/MyGame.cpp
 
+${OBJECTDIR}/demo/Starship.o: demo/Starship.cpp 
+	${MKDIR} -p ${OBJECTDIR}/demo
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/Starship.o demo/Starship.cpp
+
 ${OBJECTDIR}/demo/mainScene.o: demo/mainScene.cpp 
 	${MKDIR} -p ${OBJECTDIR}/demo
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/mainScene.o demo/mainScene.cpp
+
+${OBJECTDIR}/demo/particleDecay.o: demo/particleDecay.cpp 
+	${MKDIR} -p ${OBJECTDIR}/demo
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/particleDecay.o demo/particleDecay.cpp
 
 ${OBJECTDIR}/engine/Component.o: engine/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine

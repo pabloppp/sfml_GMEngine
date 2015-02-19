@@ -1,18 +1,11 @@
-/* 
- * File:   Keyboard.cpp
- * Author: pablopernias
- * 
- * Created on 17 de febrero de 2015, 11:07
- */
-
 #include "Keyboard.hpp"
+
+using namespace gme;
 
 Keyboard::Keyboard() {
 }
 
-Keyboard::Keyboard(const Keyboard& orig) {
+bool Keyboard::isKeyPressed(Key key){
+    sf::Keyboard::Key k = static_cast<sf::Keyboard::Key>((int)key);   
+    return sf::Keyboard::isKeyPressed(k);
 }
-
-Keyboard::~Keyboard() {
-}
-

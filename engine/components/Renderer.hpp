@@ -3,6 +3,7 @@
 
 #include "../Component.hpp"
 #include "../facade/Texture.hpp"
+#include "../facade/Vector2.hpp"
 #include "SFML/Graphics.hpp"
 
 namespace gme{
@@ -15,13 +16,13 @@ public:
     void update();
     void setTexture(Texture &t);
     void setTexture(const std::string &s);
-    void setSize(sf::Vector2<float> f);
-    void setFrame(sf::Vector2<float> f);
-    void setCenter(sf::Vector2<float> f);
+    void setSize(Vector2 f);
+    void setFrame(Vector2 f);
+    void setCenter(Vector2 f);
 private:
-    sf::Vector2<float> size;
-    sf::Vector2<float> center;
-    sf::Vector2<float> position;
+    Vector2 size;
+    Vector2 center;
+    Vector2 position;
     sf::Drawable *drawable;
 
 };

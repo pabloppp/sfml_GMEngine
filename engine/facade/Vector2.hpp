@@ -9,6 +9,8 @@ class Vector2{
 public:
     Vector2(float x = 0, float y = 0);
     float x, y;
+    Vector2 normalized();
+    float magnitude();
 private:
     //sf::Vector2f vector;
 };

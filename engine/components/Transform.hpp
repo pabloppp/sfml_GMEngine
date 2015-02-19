@@ -21,15 +21,16 @@ public:
     void setScale(gme::Vector2 v);
     void setZIndex(float i);
     void rotate(float i);
-    void scale(gme::Vector2 v);
+    void resize(gme::Vector2 v);
     void translate(gme::Vector2 v);
     void lookAt(GameObject *g);
     void setup();
     void update();
+    gme::Vector2 position;
+    float rotation;
+    gme::Vector2 scale;
+    gme::Vector2 forward();
 private:
-    gme::Vector2 position_v;
-    float rotation_v;
-    gme::Vector2 scale_v;
     float zIndex;
 };
 

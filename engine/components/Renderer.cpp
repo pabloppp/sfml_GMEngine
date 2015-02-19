@@ -49,14 +49,14 @@ void Renderer::setTexture(const std::string& s){
     if(t != NULL) setTexture(*t);
 }
 
-void Renderer::setSize(sf::Vector2<float> f){
+void Renderer::setSize(gme::Vector2 f){
     size = f;
 }
 
-void Renderer::setFrame(sf::Vector2<float> f){
+void Renderer::setFrame(gme::Vector2 f){
     position = f;
 }
 
-void Renderer::setCenter(sf::Vector2<float> f){
+void Renderer::setCenter(gme::Vector2 f){
     center = f;
 }

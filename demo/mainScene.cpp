@@ -1,6 +1,7 @@
 #include "mainScene.hpp"
-#include "FirstGameObject.hpp"
+#include "Starship.hpp"
 #include "CustomScript.hpp"
+#include "JetParticle.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -8,21 +9,15 @@
 void mainScene::setup(){
     
     //Podemos crear las texturas
-    gme::Game::newTexture("resources/balon.png", "ball");
-    gme::Game::newTexture("resources/cesped.png", "grass");
+    gme::Game::newTexture("demo/resources/starship.png", "starship");
+    gme::Game::newTexture("demo/resources/particle1.png", "particle1");
     
     //Creamos los objetos de la escena
     //y edición de los mismos
     
-    gme::GameObject *gameObject = new FirstGameObject("player");
-    gameObject->getRenderer()->setTexture("ball");
-    gameObject->getTransform()->setPosition(gme::Vector2(100, 480));
-    
-    gme::GameObject *gameObject2 = new FirstGameObject("enemy");
-    gameObject2->getRenderer()->setTexture("grass");
-    gameObject->addChild(gameObject2);
-    gameObject2->getTransform()->setPosition(gme::Vector2(200, 480));
-    
+    gme::GameObject *player = new Starship("starship");
+    player->getTransform()->setPosition(gme::Vector2(320, 240));
+
 }
 
 

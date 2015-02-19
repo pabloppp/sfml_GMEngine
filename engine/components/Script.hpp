@@ -17,6 +17,8 @@ public:
     Renderer *getRenderer();
     Collider *getCollider();
     RigidBody *getRigidBody();
+    void destroyGameObject(GameObject * g);
+    void instantiate(GameObject * g);
 private:
 
 };

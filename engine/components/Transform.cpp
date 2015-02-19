@@ -1,11 +1,12 @@
 #include "Transform.hpp"
 
 #include "../GameObject.hpp"
+#include <math.h>
 
 using namespace gme;
 
 gme::Vector2 Transform::getPosition(){
-    gme::Vector2 v = position_v;
+    gme::Vector2 v = position;
     if(gameObject()!= NULL && gameObject()->getParent() != NULL){
         v.x += gameObject()->getParent()->getTransform()->getPosition().x;
         v.y += gameObject()->getParent()->getTransform()->getPosition().y;
@@ -14,23 +15,23 @@ gme::Vector2 Transform::getPosition(){
 }
 
 gme::Vector2 Transform::getPositionRelative(){
-    return position_v;
+    return position;
 }
 
 float Transform::getRotation(){
-    float f = rotation_v;
+    float f = rotation;
     if(gameObject()!= NULL && gameObject()->getParent() != NULL){
         f += gameObject()->getParent()->getTransform()->getRotation();
     }
-    return rotation_v;
+    return rotation;
 }
 
 float Transform::getRotationRelative(){
-    return rotation_v;
+    return rotation;
 }
 
 gme::Vector2 Transform::getScale(){
-    gme::Vector2 v = scale_v;
+    gme::Vector2 v = scale;
     if(gameObject()!= NULL && gameObject()->getParent() != NULL){
         v.x *= gameObject()->getParent()->getTransform()->getScale().x;
         v.y *= gameObject()->getParent()->getTransform()->getScale().y;
@@ -39,7 +40,7 @@ gme::Vector2 Transform::getScale(){
 }
 
 gme::Vector2 Transform::getScaleRelative(){
-    return scale_v;
+    return scale;
 }
 
 float Transform::getZIndex(){
@@ -47,15 +48,15 @@ float Transform::getZIndex(){
 }
 
 void Transform::setPosition(gme::Vector2 v){
-  position_v = v;  
+  position = v;  
 }
 
 void Transform::setRotation(float f){
-  rotation_v = f;  
+  rotation = f;  
 }
 
 void Transform::setScale(gme::Vector2 v){
-  scale_v = v;  
+  scale = v;  
 }
 
 void Transform::setZIndex(float f){
@@ -63,17 +64,17 @@ void Transform::setZIndex(float f){
 }
 
 void Transform::rotate(float i){
-    rotation_v += i;
+    rotation += i;
 }
 
-void Transform::scale(gme::Vector2 v){
-    scale_v.x *= v.x;
-    scale_v.y *= v.y;
+void Transform::resize(gme::Vector2 v){
+    scale.x *= v.x;
+    scale.y *= v.y;
 }
 
 void Transform::translate(gme::Vector2 v){
-    position_v.x += v.x;
-    position_v.y += v.y;
+    position.x += v.x;
+    position.y += v.y;
 }
 
 void Transform::lookAt(GameObject* g){
@@ -81,9 +82,14 @@ void Transform::lookAt(GameObject* g){
 }
 
 void Transform::setup(){
-    if(scale_v.x == 0 || scale_v.y == 0){
-        scale_v = gme::Vector2(1,1);
+    if(scale.x == 0 || scale.y == 0){
+        scale = gme::Vector2(1,1);
     }
+}
+
+Vector2 Transform::forward(){
+    float PI = 3.14159265;
+    return Vector2(sin(rotation*PI/180), -cos(rotation*PI/180));
 }
 
 void Transform::update(){

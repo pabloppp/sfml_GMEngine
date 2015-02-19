@@ -1,32 +1,63 @@
 #include "CustomScript.hpp"
+#include "JetParticle.hpp"
 
 //OBLIGATORIOS
 void CustomScript::setup(){
-    getRenderer()->setSize(sf::Vector2<float>(32,32));
+    if(getRigidBody() != NULL) getRigidBody()->setGravity(true);
+    timeLapse = 0.1;
 }
 
 void CustomScript::update(){
-    
     float deltaTime = gme::Game::deltaTime.asSeconds();
-    //Animacion del sprite
-    gameObject()->getRenderer()->setFrame(sf::Vector2f(contador/2, 0));
-    contador++;
-    if(contador > 8) contador = 0;
-    
-    //Movimiento
-    if(getTransform()->getPosition().y < 0){
-    getTransform()->setPosition(
-            gme::Vector2(getTransform()->getPositionRelative().x, 
-            gme::Game::getWindow()->getSize().y)
-            );    
+    if(getRigidBody() != NULL){
+        
+        if(gme::Keyboard::isKeyPressed(gme::Keyboard::Space) && !spaceDown){
+            if(getRigidBody()->hasGravity()) getRigidBody()->setGravity(false);
+            else getRigidBody()->setGravity(true);
+            spaceDown = true;
+        }else if(!gme::Keyboard::isKeyPressed(gme::Keyboard::Space) && spaceDown){
+            spaceDown = false;
+        }
+        
+        if(gme::Keyboard::isKeyPressed(gme::Keyboard::Up)){
+            getRigidBody()->push(getTransform()->forward(), 12*deltaTime);
+        }
+        if(gme::Keyboard::isKeyPressed(gme::Keyboard::Down))
+            getRigidBody()->push(getTransform()->forward(), -10*deltaTime);
+        
+        if(gme::Keyboard::isKeyPressed(gme::Keyboard::Right))
+            getRigidBody()->angularSpeed += 5*deltaTime;
+        
+        if(gme::Keyboard::isKeyPressed(gme::Keyboard::Left))
+            getRigidBody()->angularSpeed -= 5*deltaTime;
+        
+        if(getRigidBody()->speed.magnitude() > 100 || gme::Keyboard::isKeyPressed(gme::Keyboard::Up)){
+            timeOut+=deltaTime;
+            if(timeOut > timeLapse){
+                timeOut = 0;
+                gme::GameObject *particle = new JetParticle("particle");
+                instantiate(particle);
+                particle->getTransform()->setPosition(gme::Vector2(
+                    getTransform()->position.x-getTransform()->forward().x*20,
+                    getTransform()->position.y-getTransform()->forward().y*20
+                ));
+                particle->getTransform()->setRotation(getTransform()->rotation);
+            }
+        }
+
     }
     
-    getTransform()->translate(gme::Vector2(0, -200*deltaTime));
+    if(getTransform()->position.y > 480+23){
+        getTransform()->position.y = 0-23;
+    }
+    else if(getTransform()->position.y < 0-23){
+        getTransform()->position.y = 480+23;
+    }
     
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) getTransform()->translate(gme::Vector2(80*deltaTime, 0));
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) getTransform()->translate(gme::Vector2(-80*deltaTime, 0)); 
+    if(getTransform()->position.x > 640+23) getTransform()->position.x = 0-23;
+    else if(getTransform()->position.x < 0-23) getTransform()->position.x = 640+23;
     
-    getTransform()->rotate(300*deltaTime);
+    //std::cout << "GameObjects: " << gme::Game::getCurrentScene()->getGameObjects()->size() << std::endl;
 }
 
 //OPCIONALES

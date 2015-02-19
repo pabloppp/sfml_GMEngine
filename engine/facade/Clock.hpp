@@ -6,7 +6,7 @@
 
 namespace gme{  
     
-class Clock : public sf::Clock{
+class Clock{
 public:
     Clock();
     Time restart();

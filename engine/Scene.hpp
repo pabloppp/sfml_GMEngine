@@ -15,6 +15,8 @@ public:
     Scene(const Scene& orig);
     virtual ~Scene();
     void addGameObject(GameObject *g);
+    void destroyGameObject(GameObject *g);
+    void instantiate(GameObject *g);
     std::vector<GameObject*> *getGameObjects();
     virtual void setup() = 0;
     void superSetup();

@@ -11,9 +11,10 @@ public:
     virtual ~CustomScript();
     void onGui();
     void onMessage(std::string s, float f);
-    int contador;
-    bool interruptor;
 private:
+    float timeOut;
+    float timeLapse;
+    bool spaceDown;
 
 };
 

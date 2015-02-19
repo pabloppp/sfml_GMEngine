@@ -43,6 +43,8 @@ void GameObject::update(){
     for(int i = components.size()-1; i >= 0; i--){
         if(components.at(i)->isActive()) components.at(i)->update();
     }
+    if(rigidBody != NULL) rigidBody->update();
+    if(collider != NULL) collider->update();
 }
 
 void GameObject::addTag(std::string t){
