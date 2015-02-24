@@ -19,11 +19,12 @@ GameObject::GameObject(std::string n) {
     parent = NULL;
     transform = new Transform();
     transform->setGameObject(this);
+    transform->setScale(Vector2(1,1));
     renderer = new Renderer();
     renderer->setGameObject(this);
     collider = NULL;
     rigidBody = NULL;
-    Game::getCurrentScene()->addGameObject(this);
+    if(Game::getCurrentScene() != NULL) Game::getCurrentScene()->addGameObject(this);
 }
 
 GameObject::GameObject(const GameObject& orig) {
@@ -36,6 +37,18 @@ std::string GameObject::getName(){
 
 GameObject::~GameObject() {
     while(!components.empty())delete components.back(), components.pop_back();
+    renderer = NULL;
+    delete renderer;
+    transform = NULL;
+    delete transform;
+    if(rigidBody != NULL){
+        rigidBody = NULL;
+        delete rigidBody;
+    }
+    if(collider != NULL){
+        collider = NULL;
+        delete collider;
+    }
     //std::cout << "Destroying object " << name << std::endl;
 }
 
@@ -47,12 +60,25 @@ void GameObject::update(){
     if(collider != NULL) collider->update();
 }
 
+void GameObject::drawGui(){
+    for(int i = components.size()-1; i >= 0; i--){
+        if(dynamic_cast<Script*>(components.at(i)) && components.at(i)->isActive()) ((Script*)(components.at(i)))->onGui();
+    }
+}
+
 void GameObject::addTag(std::string t){
     tags.push_back(t);
 }
 
 std::vector<std::string> *GameObject::getTags(){
     return &tags;
+}
+
+bool GameObject::hasTag(const std::string& t){
+    for(int i=0; i<tags.size();i++){
+        if(tags.at(i).compare(t) == 0) return true;
+    }
+    return false;
 }
 
 std::vector<GameObject*> GameObject::findWithTag(std::string s){

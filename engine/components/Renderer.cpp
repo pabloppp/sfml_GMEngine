@@ -31,6 +31,9 @@ void Renderer::update() {
         //std::cout << Game::getWindow()->getSize().x << std::endl;
     }
     
+    if(Game::debugColliders && gameObject() != NULL && gameObject()->getCollider() != NULL){
+        gameObject()->getCollider()->render();
+    }
 }
 
 void Renderer::setTexture(Texture &t){

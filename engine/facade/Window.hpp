@@ -18,7 +18,10 @@ public:
     void close();
     void setVerticalSyncEnabled(bool b);
     bool pollEvent(sf::Event &e);
+    void setView(const sf::View &v);
+    const sf::View &getDefaultView();
     gme::Vector2 getSize();
+    sf::RenderWindow *getRWindow();
 private:
     sf::RenderWindow *rwindow;
 };

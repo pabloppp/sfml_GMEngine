@@ -39,7 +39,20 @@ void Window::setVerticalSyncEnabled(bool b){
     rwindow->setVerticalSyncEnabled(b);
 }
 
+void Window::setView(const sf::View &v){
+    rwindow->setView(v);
+}
+
+const sf::View &Window::getDefaultView() {
+    return rwindow->getDefaultView();
+}
+
+
 gme::Vector2 Window::getSize(){
     //return rwindow->getSize();
     return gme::Vector2(rwindow->getSize().x, rwindow->getSize().y);
+}
+
+sf::RenderWindow *Window::getRWindow(){
+    return rwindow;
 }

@@ -54,10 +54,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/engine/components/Transform.o \
 	${OBJECTDIR}/engine/facade/Clock.o \
 	${OBJECTDIR}/engine/facade/Keyboard.o \
+	${OBJECTDIR}/engine/facade/Mouse.o \
 	${OBJECTDIR}/engine/facade/Texture.o \
 	${OBJECTDIR}/engine/facade/Time.o \
 	${OBJECTDIR}/engine/facade/Vector2.o \
 	${OBJECTDIR}/engine/facade/Window.o \
+	${OBJECTDIR}/engine/gameobjects/Camera.o \
 	${OBJECTDIR}/main.o
 
 
@@ -180,6 +182,11 @@ ${OBJECTDIR}/engine/facade/Keyboard.o: engine/facade/Keyboard.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Keyboard.o engine/facade/Keyboard.cpp
 
+${OBJECTDIR}/engine/facade/Mouse.o: engine/facade/Mouse.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/facade
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Mouse.o engine/facade/Mouse.cpp
+
 ${OBJECTDIR}/engine/facade/Texture.o: engine/facade/Texture.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine/facade
 	${RM} "$@.d"
@@ -199,6 +206,11 @@ ${OBJECTDIR}/engine/facade/Window.o: engine/facade/Window.cpp
 	${MKDIR} -p ${OBJECTDIR}/engine/facade
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Window.o engine/facade/Window.cpp
+
+${OBJECTDIR}/engine/gameobjects/Camera.o: engine/gameobjects/Camera.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/gameobjects
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/gameobjects/Camera.o engine/gameobjects/Camera.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

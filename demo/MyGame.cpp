@@ -3,6 +3,9 @@
 
 void MyGame::setup(){
     
+    //enable debug colliders;
+    //debugColliders = true;
+    
     //Create all the scenes
     gme::Scene *sceneOne = new mainScene("mainScene");
     

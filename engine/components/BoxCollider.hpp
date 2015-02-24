@@ -7,11 +7,16 @@ namespace gme{
 
 class BoxCollider : public Collider{
 public:
-    BoxCollider();
-    BoxCollider(const BoxCollider& orig);
-    virtual ~BoxCollider();
+    void setup();
+    void update();
+    void setSize(Vector2 s);
+    void setSize(float x, float y);
+    void checkCollision(Collider *col);
+    void render();
+    Vector2 getSize();
 private:
-
+    sf::RectangleShape rectangle;
+    Vector2 size;
 };
 
 }

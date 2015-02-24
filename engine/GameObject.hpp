@@ -27,9 +27,11 @@ public:
     GameObject(const GameObject& orig);
     virtual ~GameObject();
     void update();
+    void drawGui();
     virtual void setup() = 0;
     void componentSetup();
     void addTag(std::string t);
+    bool hasTag(const std::string &t);
     std::vector<std::string> *getTags();
     static std::vector<GameObject*> findWithTag(std::string s);
     static std::vector<GameObject*> find(std::string s);

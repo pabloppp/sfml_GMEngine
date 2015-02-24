@@ -1,12 +1,14 @@
 #include <iostream>
 #include "Scene.hpp"
 #include "Game.hpp"
+#include "gameobjects/Camera.hpp"
 
 using namespace gme;
 
 Scene::Scene(std::string n){
     name = n;
     Game::addScene(this);
+    Game::mainCamera = new Camera("mainCamera");
 }
 
 Scene::Scene(const Scene& orig) {
@@ -55,17 +57,42 @@ std::vector<GameObject*> *Scene::getGameObjects(){
 }
 
 void Scene::update(){
-    //UPDATE SCRIPTS    
-    for(int i = gameObjects.size()-1; i >= 0; i--){
+    //UPDATE SCRIPTS
+    Vector2 windowSize = Game::getWindow()->getSize();
+    
+    Vector2 mainCenter( ((Camera*)Game::mainCamera)->getPosition().x, ((Camera*)Game::mainCamera)->getPosition().y );
+    Vector2 mainSize = ((Camera*)Game::mainCamera)->getSize();
+    
+    mainView.setCenter(mainCenter.x+windowSize.x/2, mainCenter.y+windowSize.y/2);
+    mainView.setSize(640, 480);
+    //std::cout << mainSize.x << " WOWOWOWOW" << std::endl;
+    mainView.setSize(mainSize.x*windowSize.x, mainSize.y*windowSize.y);
+        
+    Game::getWindow()->setView(mainView);
+    for(int i = gameObjects.size()-1; i >= 0; i--){       
+        if(gameObjects.at(i)->getCollider() != NULL){
+                for(int j = i-1; j >= 0; j--){
+                    if(gameObjects.at(j) != NULL && gameObjects.at(j)->getCollider() != NULL){
+                        gameObjects.at(i)->getCollider()->checkCollision(gameObjects.at(j)->getCollider());
+                    }
+                }
+        }
         if(gameObjects.at(i)->isActive()) gameObjects.at(i)->update();
-    }
+    } 
     
     
     
-    //RENDER    
+    //RENDER 
     for(int i = gameObjects.size()-1; i >= 0; i--){
          if(gameObjects.at(i)->isActive()) gameObjects.at(i)->getRenderer()->update();
     }
+    
+    Game::getWindow()->setView(Game::getWindow()->getDefaultView());
+    for(int i = gameObjects.size()-1; i >= 0; i--){     
+        if(gameObjects.at(i)->isActive()) gameObjects.at(i)->drawGui();
+    }
+    
+
 }
 
 void Scene::superSetup(){

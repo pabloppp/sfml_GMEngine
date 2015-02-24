@@ -7,11 +7,15 @@ namespace gme{
 
 class CircleCollider : public Collider{
 public:
-    CircleCollider();
-    CircleCollider(const CircleCollider& orig);
-    virtual ~CircleCollider();
+    void setup();
+    void update();
+    void setRadius(float f);
+    void checkCollision(Collider *col);
+    void render();
+    float getRadius();
 private:
-
+    sf::CircleShape circle;
+    float radius;
 };
 
 }

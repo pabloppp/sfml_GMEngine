@@ -9,6 +9,9 @@ void CustomScript::setup(){
 
 void CustomScript::update(){
     float deltaTime = gme::Game::deltaTime.asSeconds();
+    
+    //std::cout << gme::Mouse::getPosition().x << ": mouseX" << std::endl;
+    
     if(getRigidBody() != NULL){
         
         if(gme::Keyboard::isKeyPressed(gme::Keyboard::Space) && !spaceDown){

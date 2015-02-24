@@ -31,6 +31,7 @@
 #include "facade/Texture.hpp"
 #include "facade/Vector2.hpp"
 #include "facade/Window.hpp"
+#include "facade/Mouse.hpp"
 
 
 #endif	/* GMENGINE_HPP */

@@ -93,7 +93,11 @@ Window *Game::window = NULL;
 
 Scene *Game::currentScene = NULL;
 
+GameObject *Game::mainCamera = NULL;
+
 std::vector<Scene*> Game::scenes;
 
 std::vector<Texture> Game::textures;
+
+bool Game::debugColliders = false;
 

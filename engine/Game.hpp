@@ -8,9 +8,12 @@
 #include "facade/Time.hpp"
 #include "facade/Clock.hpp"
 #include "facade/Texture.hpp"
+#include "GameObject.hpp"
 
 namespace gme{ 
 
+//class Camera;
+    
 class Game {
 public:
     Game(sf::Vector2f windowSize, std::string name) ;
@@ -27,7 +30,9 @@ public:
     static void newTexture(const std::string &path, const std::string &name);
     static Texture *getTexture(const std::string &name);
     Clock deltaClock;
-private:
+    static bool debugColliders;
+    static GameObject *mainCamera;
+private:   
     static std::vector<Scene*> scenes;
     static std::vector<Texture> textures;
     static Scene *currentScene;

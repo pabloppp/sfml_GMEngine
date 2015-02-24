@@ -13,6 +13,7 @@ class Script : public Component{
 public:
     virtual void onGui(){};
     virtual void onMessage(std::string m, float v){};
+    virtual void onCollision(){};
     Transform *getTransform();
     Renderer *getRenderer();
     Collider *getCollider();

@@ -11,6 +11,7 @@ public:
     float x, y;
     Vector2 normalized();
     float magnitude();
+    float magnitude2();
 private:
     //sf::Vector2f vector;
 };
