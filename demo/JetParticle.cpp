@@ -1,5 +1,6 @@
 #include "JetParticle.hpp"
 #include "particleDecay.hpp"
+#include "scriptDePrueba.hpp"
 
 void JetParticle::setup(){
     addTag("particle");
@@ -9,12 +10,14 @@ void JetParticle::setup(){
     addComponent(new particleDecay());
     
     addComponent(new gme::RigidBody());
-    gme::BoxCollider *boxCollider = new gme::BoxCollider();
-    boxCollider->setSize(20, 20);
+    gme::CircleCollider *boxCollider = new gme::CircleCollider();
+    boxCollider->setRadius(10);
     boxCollider->center.y = -10;
     boxCollider->addFilterTag("particle");
     boxCollider->inheritRotation(true);
     addComponent(boxCollider);
     getRigidBody()->friction *= 4;
+    
+    addComponent(new scriptDePrueba());
 }
 

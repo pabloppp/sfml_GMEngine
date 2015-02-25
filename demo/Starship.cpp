@@ -1,6 +1,7 @@
 #include "Starship.hpp"
 #include "MyGame.hpp"
 #include "CustomScript.hpp"
+#include "scriptDePrueba.hpp"
 
 void Starship::setup(){
     
@@ -11,10 +12,19 @@ void Starship::setup(){
     CustomScript *script1 = new CustomScript();
     addComponent(script1);
     
+    addComponent(new scriptDePrueba());
+    
     addComponent(new gme::RigidBody());
     addComponent(new gme::CircleCollider());
+   
+    gme::SoundPlayer *sp = new gme::SoundPlayer();
     
-    getTransform()->scale = gme::Vector2(3,3);
+    sp->setSound("sound1");
+    sp->autoplay = true;
+    sp->loop(true);
+    addComponent(sp);
+    
+    getTransform()->scale = gme::Vector2(3,3);  
     
     
 }

@@ -8,12 +8,14 @@
 
 void mainScene::setup(){
     
-    //Podemos crear las texturas
-    gme::Game::newTexture("demo/resources/starship.png", "starship");
-    gme::Game::newTexture("demo/resources/particle1.png", "particle1");
+
     
     //Creamos los objetos de la escena
     //y edición de los mismos
+    /*for(int i = 0; i < 3; i++){
+        gme::GameObject *player = new Starship("starship");
+        player->getTransform()->setPosition(gme::Vector2(rand()%640, rand()%480));    
+    }*/
     
     gme::GameObject *player = new Starship("starship");
     player->getTransform()->setPosition(gme::Vector2(320, 240));

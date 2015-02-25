@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/demo/Starship.o \
 	${OBJECTDIR}/demo/mainScene.o \
 	${OBJECTDIR}/demo/particleDecay.o \
+	${OBJECTDIR}/demo/scriptDePrueba.o \
 	${OBJECTDIR}/engine/Component.o \
 	${OBJECTDIR}/engine/Game.o \
 	${OBJECTDIR}/engine/GameObject.o \
@@ -48,13 +49,17 @@ OBJECTFILES= \
 	${OBJECTDIR}/engine/components/BoxCollider.o \
 	${OBJECTDIR}/engine/components/CircleCollider.o \
 	${OBJECTDIR}/engine/components/Collider.o \
+	${OBJECTDIR}/engine/components/MusicPlayer.o \
 	${OBJECTDIR}/engine/components/Renderer.o \
 	${OBJECTDIR}/engine/components/RigidBody.o \
 	${OBJECTDIR}/engine/components/Script.o \
+	${OBJECTDIR}/engine/components/SoundPlayer.o \
 	${OBJECTDIR}/engine/components/Transform.o \
 	${OBJECTDIR}/engine/facade/Clock.o \
 	${OBJECTDIR}/engine/facade/Keyboard.o \
 	${OBJECTDIR}/engine/facade/Mouse.o \
+	${OBJECTDIR}/engine/facade/Music.o \
+	${OBJECTDIR}/engine/facade/Sound.o \
 	${OBJECTDIR}/engine/facade/Texture.o \
 	${OBJECTDIR}/engine/facade/Time.o \
 	${OBJECTDIR}/engine/facade/Vector2.o \
@@ -117,6 +122,11 @@ ${OBJECTDIR}/demo/particleDecay.o: demo/particleDecay.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/particleDecay.o demo/particleDecay.cpp
 
+${OBJECTDIR}/demo/scriptDePrueba.o: demo/scriptDePrueba.cpp 
+	${MKDIR} -p ${OBJECTDIR}/demo
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/scriptDePrueba.o demo/scriptDePrueba.cpp
+
 ${OBJECTDIR}/engine/Component.o: engine/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine
 	${RM} "$@.d"
@@ -152,6 +162,11 @@ ${OBJECTDIR}/engine/components/Collider.o: engine/components/Collider.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/components/Collider.o engine/components/Collider.cpp
 
+${OBJECTDIR}/engine/components/MusicPlayer.o: engine/components/MusicPlayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/components/MusicPlayer.o engine/components/MusicPlayer.cpp
+
 ${OBJECTDIR}/engine/components/Renderer.o: engine/components/Renderer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine/components
 	${RM} "$@.d"
@@ -166,6 +181,11 @@ ${OBJECTDIR}/engine/components/Script.o: engine/components/Script.cpp
 	${MKDIR} -p ${OBJECTDIR}/engine/components
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/components/Script.o engine/components/Script.cpp
+
+${OBJECTDIR}/engine/components/SoundPlayer.o: engine/components/SoundPlayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/components
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/components/SoundPlayer.o engine/components/SoundPlayer.cpp
 
 ${OBJECTDIR}/engine/components/Transform.o: engine/components/Transform.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine/components
@@ -186,6 +206,16 @@ ${OBJECTDIR}/engine/facade/Mouse.o: engine/facade/Mouse.cpp
 	${MKDIR} -p ${OBJECTDIR}/engine/facade
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Mouse.o engine/facade/Mouse.cpp
+
+${OBJECTDIR}/engine/facade/Music.o: engine/facade/Music.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/facade
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Music.o engine/facade/Music.cpp
+
+${OBJECTDIR}/engine/facade/Sound.o: engine/facade/Sound.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine/facade
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Game_Making/SFML-2.1/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/facade/Sound.o engine/facade/Sound.cpp
 
 ${OBJECTDIR}/engine/facade/Texture.o: engine/facade/Texture.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine/facade
