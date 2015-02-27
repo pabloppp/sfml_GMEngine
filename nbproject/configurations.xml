@@ -90,19 +90,20 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
+          <standard>8</standard>
           <incDir>
-            <pElem>../../Game_Making/SFML-2.1/include</pElem>
+            <pElem>libs/SFML-2.1/include</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
-            <pElem>../../Game_Making/SFML-2.1/lib</pElem>
+            <pElem>libs/SFML-2.1/lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
@@ -254,8 +255,9 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <standard>8</standard>
           <incDir>
-            <pElem>../../Game_Making/SFML-2.1/include</pElem>
+            <pElem>libs/SFML-2.1/include</pElem>
           </incDir>
         </ccTool>
         <fortranCompilerTool>
@@ -265,8 +267,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
         <linkerTool>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gmengine</output>
           <linkerAddLib>
-            <pElem>../../Game_Making/SFML-2.1/lib</pElem>
+            <pElem>libs/SFML-2.1/lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>sfml-graphics</linkerLibLibItem>

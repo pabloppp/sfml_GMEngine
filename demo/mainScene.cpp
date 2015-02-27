@@ -12,7 +12,7 @@ void mainScene::setup(){
     
     //Creamos los objetos de la escena
     //y edición de los mismos
-    /*for(int i = 0; i < 3; i++){
+    /*for(int i = 0; i < 10; i++){
         gme::GameObject *player = new Starship("starship");
         player->getTransform()->setPosition(gme::Vector2(rand()%640, rand()%480));    
     }*/
