@@ -3,6 +3,7 @@
 
 #include "../Component.hpp"
 #include "../facade/Vector2.hpp"
+#include <unordered_map>
 
 namespace gme{
     
@@ -14,16 +15,19 @@ public:
     void removeFilterTag(const std::string &tag);
     virtual void render() = 0;
     Vector2 getGlobalCenter();
-    Vector2 center;
     void noticeCollision(Collider *col);
     bool checkTags(Collider *col);
+    bool checked;
 private:
 
 protected:
     bool canRotate;
     bool colliding;
     sf::Color debugColor;
-    std::vector<std::string> tags;
+    std::unordered_map<std::string, std::string> tagmap;
+    float ownerRot;
+    Vector2 ownerRotDisp;
+
     
 };
 

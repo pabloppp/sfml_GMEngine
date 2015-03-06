@@ -10,12 +10,13 @@ void JetParticle::setup(){
     addComponent(new particleDecay());
     
     addComponent(new gme::RigidBody());
-    gme::CircleCollider *boxCollider = new gme::CircleCollider();
-    boxCollider->setRadius(10);
-    boxCollider->center.y = -10;
+    gme::BoxCollider *boxCollider = new gme::BoxCollider();
+    boxCollider->setSize(20,20);
+    //boxCollider->setRadius(10);
     boxCollider->addFilterTag("particle");
-    boxCollider->inheritRotation(true);
+    //boxCollider->inheritRotation(true);
     addComponent(boxCollider);
+    getRigidBody()->isKinematic = true;
     getRigidBody()->friction *= 4;
     
     addComponent(new scriptDePrueba());

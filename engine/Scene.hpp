@@ -5,6 +5,7 @@
 
 #include "GameObject.hpp"
 #include "facade/Clock.hpp"
+#include "CollisionGrid.hpp"
 
 namespace gme{
 
@@ -23,6 +24,7 @@ public:
     void superSetup();
     void update();
     std::string getName();
+    void setCollisionGrid(float px, float py, float sx, float sy, int div = 4);
     
 private:
     std::vector<GameObject*> gameObjects;
@@ -30,6 +32,10 @@ private:
     sf::View mainView;
     Clock updateClock;
     float lastTime;
+    int testCount;
+    float test1;
+    float test2;
+    CollisionGrid cGrid;
 };
 
 }

@@ -4,6 +4,7 @@
 #include "Transform.hpp"
 #include "../GameObject.hpp"
 #include "../Game.hpp"
+#include "BoxCollider.hpp"
 
 using namespace gme;
 
@@ -26,26 +27,27 @@ void RigidBody::update(){
         speed.y += weight*gravityDirection.normalized().y*gravityForce*deltaTime*5;
     }  
     
-    float frictionAngular = 0;
     if(friction != 0){   
         frictionV.x = speed.x*friction;
         frictionV.y = speed.y*friction;
-        frictionAngular = angularSpeed*friction;       
+        frictionA = angularSpeed*friction;       
     }
-    
+   
+    //p->x += speed.x;
+    //p->y += speed.y;
+}
+
+void RigidBody::updatep() {
+    if(isKinematic) return;
+    float deltaTime = Game::deltaTime.asSeconds();
     if(gameObject()!= NULL){
-        Vector2 p = gameObject()->getTransform()->getPosition();
         gameObject()->getTransform()->position.x += speed.x*deltaTime*10;
         gameObject()->getTransform()->position.y += speed.y*deltaTime*10;
         if(!fixedRotation) gameObject()->getTransform()->rotation += angularSpeed*deltaTime*10;
     }
-        
     speed.x += acceleration.x*deltaTime-frictionV.x;
     speed.y += acceleration.y*deltaTime-frictionV.y;
-    angularSpeed += angularAcceleration*deltaTime-frictionAngular;
-   
-    //p->x += speed.x;
-    //p->y += speed.y;
+    angularSpeed += angularAcceleration*deltaTime-frictionA;
 }
 
 void RigidBody::push(Vector2 vector){
@@ -69,6 +71,25 @@ void RigidBody::setGravity(bool g){
 bool RigidBody::hasGravity(){
     return gravity;
 }
+
+void RigidBody::onCollision(Collider* c) {
+    if(isKinematic || c->gameObject()->getRigidBody() == NULL || c->gameObject()->getRigidBody()->isKinematic)
+        return;
+    float r1, r2;
+    if(dynamic_cast<BoxCollider*>(c)){
+        r1 = ((BoxCollider*)c)->innerRadius;
+        r2 = ((BoxCollider*)gameObject()->getCollider())->innerRadius;
+    }
+    float p1 = c->gameObject()->getTransform()->position.y;
+    float p2 = gameObject()->getTransform()->position.y;
+    float diff = (r1+r2)-abs(p2-p1);
+    gameObject()->getTransform()->translate(Vector2(0, -(diff)));
+    float pdiff = gameObject()->getTransform()->position.y-gameObject()->getTransform()->o_position.y;
+    if(abs(pdiff) < 1) gameObject()->getTransform()->position = gameObject()->getTransform()->o_position;
+    acceleration = Vector2(0,0);
+    speed = Vector2(0,0);
+}
+
 
 float RigidBody::gravityForce = 9.81;
 

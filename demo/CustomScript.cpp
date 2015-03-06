@@ -47,6 +47,7 @@ void CustomScript::update(){
             timeOut+=deltaTime;
             if(timeOut > timeLapse){
                 timeOut = 0;
+                
                 gme::GameObject *particle = new JetParticle("particle");
                 instantiate(particle);
                 particle->getTransform()->setPosition(gme::Vector2(
@@ -54,6 +55,7 @@ void CustomScript::update(){
                     getTransform()->position.y-getTransform()->forward().y*20
                 ));
                 particle->getTransform()->setRotation(getTransform()->rotation);
+                
             }
         }
 
@@ -81,9 +83,16 @@ void CustomScript::onGui(){
     
 }
 
-void CustomScript::onMessage(std::string s, float f){
+void CustomScript::onMessage(std::string m, float f){
     
 }
+
+void CustomScript::onCollision(gme::Collider* c) {
+    if(getRigidBody() != NULL){
+        
+    }
+}
+
 
 
 

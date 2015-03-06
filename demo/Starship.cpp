@@ -15,7 +15,8 @@ void Starship::setup(){
     addComponent(new scriptDePrueba());
     
     addComponent(new gme::RigidBody());
-    addComponent(new gme::CircleCollider());
+    addComponent(new gme::BoxCollider());
+    //getCollider()->inheritRotation(true);
    
     gme::SoundPlayer *sp = new gme::SoundPlayer();
     

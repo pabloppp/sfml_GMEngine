@@ -4,6 +4,8 @@
 #include "gameobjects/Camera.hpp"
 
 #include <math.h>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 using namespace gme;
 
@@ -12,7 +14,15 @@ Scene::Scene(std::string n){
     Game::addScene(this);
     Game::mainCamera = new Camera("mainCamera");
     updateClock.restart();
+    gameObjects.reserve(99999);
+    Vector2 wsize = Game::getWindow()->getSize();
+    cGrid = CollisionGrid(-wsize.x/2.,-wsize.y/2.0,2*wsize.x,2*wsize.y, 4);
 }
+
+void Scene::setCollisionGrid(float px, float py, float sx, float sy, int div) {
+    cGrid = CollisionGrid(px, py, sx, sy, div);
+}
+
 
 Scene::Scene(const Scene& orig) {
 }
@@ -23,26 +33,14 @@ Scene::~Scene() {
 }
 
 void Scene::addGameObject(GameObject *g) {
-    /*
-    if(gameObjects.empty()) gameObjects.push_back(g);
-    else{
-        for(int i=0;i<gameObjects.size();i++){
-            if(gameObjects.at(i)->getTransform()->getZIndex() > g->getTransform()->getZIndex()){
-                gameObjects.insert(gameObjects.begin()+i, g);
-                return;
-            }
-        }
-        gameObjects.push_back(g);
-    }
-    */
     gameObjects.push_back(g);
-    //gameObjects.back()->setup();
 }
 
 void Scene::destroyGameObject(GameObject* g){
     for(int i=0;i<gameObjects.size();i++){
         if(gameObjects.at(i) == g){
-            gameObjects.erase(gameObjects.begin()+i);
+            gameObjects.at(i) = gameObjects.back();
+            gameObjects.pop_back();
             delete g;
             return;
         }
@@ -63,6 +61,7 @@ void Scene::update(){
     //UPDATE SCRIPTS
     Vector2 windowSize = Game::getWindow()->getSize();
     
+    
     Vector2 mainCenter( ((Camera*)Game::mainCamera)->getPosition().x, ((Camera*)Game::mainCamera)->getPosition().y );
     Vector2 mainSize = ((Camera*)Game::mainCamera)->getSize();
     
@@ -77,26 +76,48 @@ void Scene::update(){
     float updateTime = 1.0/30.0;
     float now = updateClock.currentTime().asSeconds();
     float frameTime = now - lastTime;
-    
+        
     while(frameTime > updateTime){   
         
+        cGrid.clear();    
         Game::deltaTime = updateTime;
-        for(int i = gameObjects.size()-1; i >= 0; i--){  
-            if(gameObjects.at(i)->isActive()) gameObjects.at(i)->fixedUpdate();
-            
-            if(gameObjects.at(i)->getCollider() != NULL){
-                    for(int j = 0; j < i; j++){
-                        if(gameObjects.at(j) != NULL && gameObjects.at(j)->getCollider() != NULL){
-                            gameObjects.at(i)->getCollider()->checkCollision(gameObjects.at(j)->getCollider());
-                        }
-                    }
+        //Fixed update
+        for(int i = gameObjects.size()-1; i >= 0; i--){
+            if(gameObjects.at(i)->isActive()){
+                gameObjects.at(i)->fixedUpdate();
+                cGrid.addObject( gameObjects.at(i) );
             }
-            
+        }
+        //Collisions
+        //int colCount = 0;
+        for(int i = gameObjects.size()-1; i >= 0; i--){
+            if(gameObjects.at(i)->getCollider() != NULL){
+                Vector2 center = gameObjects.at(i)->getTransform()->position;
+                std::vector<gme::GameObject*> objectsAtP = cGrid.getObjectsAt(center.x, center.y);    
+                //std::cout << objectsAtP.size() << std::endl;
+                for(int j=0;j<objectsAtP.size();j++){
+                    if(objectsAtP.at(j) != gameObjects.at(i) && 
+                       objectsAtP.at(j) != NULL && 
+                       objectsAtP.at(j)->getCollider() != NULL){
+                        gameObjects.at(i)->getCollider()->checkCollision(objectsAtP.at(j)->getCollider());
+                        //colCount++;
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        //update
+        for(int i = gameObjects.size()-1; i >= 0; i--){
             if(gameObjects.at(i)->isActive()) gameObjects.at(i)->update();
         }
+        
+        
         frameTime -= updateTime;
    
     }
+    
     
     lastTime = now - frameTime;
         
@@ -111,10 +132,11 @@ void Scene::update(){
     for(int i = gameObjects.size()-1; i >= 0; i--){     
         if(gameObjects.at(i)->isActive()) gameObjects.at(i)->drawGui();
     }
+    if(Game::debugColliders) cGrid.display();
     Game::getWindow()->display();
     
-    std::cout << "fixed fps: " << 1.0/Game::deltaTime.asSeconds() << std::endl;
-    std::cout << "fps: " << 1.0/Game::unfixedDeltaTime.asSeconds() << std::endl;
+    //std::cout << "fixed fps: " << 1.0/Game::deltaTime.asSeconds() << std::endl;
+    //std::cout << "fps: " << 1.0/Game::unfixedDeltaTime.asSeconds() << std::endl;
 
 }
 

@@ -3,6 +3,7 @@
 
 #include "../Component.hpp"
 #include "../facade/Vector2.hpp"
+#include "Collider.hpp"
 
 namespace gme{
     
@@ -10,6 +11,7 @@ class RigidBody : public Component{
 public:
     RigidBody();
     void update();
+    void updatep();
     void setup();
     static float gravityForce;
     static Vector2 gravityDirection;
@@ -24,12 +26,15 @@ public:
     void push(Vector2 direction, float force);
     void setGravity(bool g);
     bool hasGravity();
+    void onCollision(Collider *c);
+    bool isKinematic;
 private:
     bool gravity;
     bool fixedRotation;
     bool fixedTranslationX;
     bool fixedTranslationY;
     Vector2 frictionV;
+    float frictionA;
 };
 
 }

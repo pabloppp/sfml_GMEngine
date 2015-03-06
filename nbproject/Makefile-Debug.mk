@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/demo/Asteroid.o \
 	${OBJECTDIR}/demo/CustomScript.o \
 	${OBJECTDIR}/demo/JetParticle.o \
 	${OBJECTDIR}/demo/MyGame.o \
@@ -42,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/demo/mainScene.o \
 	${OBJECTDIR}/demo/particleDecay.o \
 	${OBJECTDIR}/demo/scriptDePrueba.o \
+	${OBJECTDIR}/engine/CollisionGrid.o \
 	${OBJECTDIR}/engine/Component.o \
 	${OBJECTDIR}/engine/Game.o \
 	${OBJECTDIR}/engine/GameObject.o \
@@ -92,6 +94,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gmengine: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gmengine ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/demo/Asteroid.o: demo/Asteroid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/demo
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Ilibs/SFML-2.1/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/Asteroid.o demo/Asteroid.cpp
+
 ${OBJECTDIR}/demo/CustomScript.o: demo/CustomScript.cpp 
 	${MKDIR} -p ${OBJECTDIR}/demo
 	${RM} "$@.d"
@@ -126,6 +133,11 @@ ${OBJECTDIR}/demo/scriptDePrueba.o: demo/scriptDePrueba.cpp
 	${MKDIR} -p ${OBJECTDIR}/demo
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Ilibs/SFML-2.1/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/demo/scriptDePrueba.o demo/scriptDePrueba.cpp
+
+${OBJECTDIR}/engine/CollisionGrid.o: engine/CollisionGrid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/engine
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Ilibs/SFML-2.1/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/engine/CollisionGrid.o engine/CollisionGrid.cpp
 
 ${OBJECTDIR}/engine/Component.o: engine/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/engine

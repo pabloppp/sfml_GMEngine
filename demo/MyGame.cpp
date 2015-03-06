@@ -4,7 +4,7 @@
 void MyGame::setup(){
     
     //enable debug colliders;
-    //debugColliders = true;
+    debugColliders = true;
     
     //Podemos crear las texturas
     gme::Game::newTexture("demo/resources/starship.png", "starship");
