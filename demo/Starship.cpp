@@ -16,12 +16,13 @@ void Starship::setup(){
     
     addComponent(new gme::RigidBody());
     addComponent(new gme::BoxCollider());
-    //getCollider()->inheritRotation(true);
+    getRigidBody()->setElasticity(1);
    
     gme::SoundPlayer *sp = new gme::SoundPlayer();
     
     sp->setSound("sound1");
-    sp->autoplay = true;
+    //sp->autoplay = true;
+    sp->setVolume(0);
     sp->loop(true);
     addComponent(sp);
     

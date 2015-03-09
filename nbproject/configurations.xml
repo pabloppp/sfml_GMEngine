@@ -270,6 +270,7 @@
           <standard>8</standard>
           <incDir>
             <pElem>libs/SFML-2.1/include</pElem>
+            <pElem>libs/Box2D/include</pElem>
           </incDir>
         </ccTool>
         <fortranCompilerTool>
@@ -282,6 +283,7 @@
           <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gmengine</output>
           <linkerAddLib>
             <pElem>libs/SFML-2.1/lib</pElem>
+            <pElem>libs/Box2D/lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
@@ -289,6 +291,7 @@
             <linkerLibLibItem>sfml-system</linkerLibLibItem>
             <linkerLibLibItem>sfml-audio</linkerLibLibItem>
             <linkerLibLibItem>sfml-network</linkerLibLibItem>
+            <linkerLibLibItem>Box2D</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

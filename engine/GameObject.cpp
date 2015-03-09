@@ -43,29 +43,28 @@ GameObject::~GameObject() {
     transform = NULL;
     delete transform;
     if(rigidBody != NULL){
-        rigidBody = NULL;
         delete rigidBody;
+        rigidBody = NULL;       
     }
     if(collider != NULL){
-        collider = NULL;
-        delete collider;
+        delete collider;       
+        collider = NULL;       
     }
     //std::cout << "Destroying object " << name << std::endl;
 }
 
 void GameObject::update(){
-    
+    if(rigidBody != NULL) rigidBody->updatep(); 
     for(int i = components.size()-1; i >= 0; i--){
         if(components.at(i)->isActive()) components.at(i)->update();
     }
-      
+    
 }
 
 void GameObject::fixedUpdate() {    
      if(rigidBody != NULL) rigidBody->update();
      if(collider != NULL) collider->update(); 
-     if(transform != NULL) transform->update();
-     if(rigidBody != NULL) rigidBody->updatep();      
+     if(transform != NULL) transform->update();          
 }
 
 void GameObject::drawGui(){
@@ -127,8 +126,14 @@ void GameObject::addComponent(Component* c){
         std::cout << "GameObject already owns a renderer" << std::endl;
     }
     else if(dynamic_cast<Collider*>(c)){
-        c->setGameObject(this);
-        collider = (Collider*)c;
+        if(getRigidBody() != NULL){
+            c->setGameObject(this);
+            collider = (Collider*)c;
+        }
+        else{
+            std::cout << "NO COLLIDER WITHOUT RIGIDBODY" << std::endl;
+            delete c;
+        }
     }
     else if(dynamic_cast<RigidBody*>(c)){
         c->setGameObject(this);

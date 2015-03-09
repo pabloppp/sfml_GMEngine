@@ -16,12 +16,11 @@ Scene::Scene(std::string n){
     updateClock.restart();
     gameObjects.reserve(99999);
     Vector2 wsize = Game::getWindow()->getSize();
-    cGrid = CollisionGrid(-wsize.x/2.,-wsize.y/2.0,2*wsize.x,2*wsize.y, 4);
+    
+    b2Vec2 gravity(0.0f, 9.81f);
+    boxWorld = new b2World(gravity);
 }
 
-void Scene::setCollisionGrid(float px, float py, float sx, float sy, int div) {
-    cGrid = CollisionGrid(px, py, sx, sy, div);
-}
 
 
 Scene::Scene(const Scene& orig) {
@@ -79,34 +78,16 @@ void Scene::update(){
         
     while(frameTime > updateTime){   
         
-        cGrid.clear();    
         Game::deltaTime = updateTime;
         //Fixed update
+        
         for(int i = gameObjects.size()-1; i >= 0; i--){
             if(gameObjects.at(i)->isActive()){
                 gameObjects.at(i)->fixedUpdate();
-                cGrid.addObject( gameObjects.at(i) );
             }
         }
-        //Collisions
-        //int colCount = 0;
-        for(int i = gameObjects.size()-1; i >= 0; i--){
-            if(gameObjects.at(i)->getCollider() != NULL){
-                Vector2 center = gameObjects.at(i)->getTransform()->position;
-                std::vector<gme::GameObject*> objectsAtP = cGrid.getObjectsAt(center.x, center.y);    
-                //std::cout << objectsAtP.size() << std::endl;
-                for(int j=0;j<objectsAtP.size();j++){
-                    if(objectsAtP.at(j) != gameObjects.at(i) && 
-                       objectsAtP.at(j) != NULL && 
-                       objectsAtP.at(j)->getCollider() != NULL){
-                        gameObjects.at(i)->getCollider()->checkCollision(objectsAtP.at(j)->getCollider());
-                        //colCount++;
-                        
-                    }
-                }
-                
-            }
-        }
+        
+        boxWorld->Step(updateTime, 8, 3);
         
         //update
         for(int i = gameObjects.size()-1; i >= 0; i--){

@@ -51,7 +51,7 @@ bool CollisionGrid::contains(GameObject* o) {
         size.y = size.x;
     }
     if(dynamic_cast<gme::BoxCollider*>(o->getCollider())){
-        size.x = ((gme::BoxCollider*)(o->getCollider()))->outerRadius;
+        size.x = 0;
         size.y = size.x;
     }
     float o_left = oPosition.x-size.x;

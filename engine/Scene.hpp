@@ -6,6 +6,7 @@
 #include "GameObject.hpp"
 #include "facade/Clock.hpp"
 #include "CollisionGrid.hpp"
+#include <Box2D/Box2D.h>
 
 namespace gme{
 
@@ -24,7 +25,7 @@ public:
     void superSetup();
     void update();
     std::string getName();
-    void setCollisionGrid(float px, float py, float sx, float sy, int div = 4);
+    b2World *boxWorld;
     
 private:
     std::vector<GameObject*> gameObjects;
@@ -36,6 +37,7 @@ private:
     float test1;
     float test2;
     CollisionGrid cGrid;
+    
 };
 
 }
