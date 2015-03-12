@@ -7,6 +7,7 @@ void Starship::setup(){
     
     //AÑADIMOS LOS SCRIPTS Y SE CUSTOMIZAN SI ES NECESARIO
     addTag("player");
+    
     getRenderer()->setTexture("starship");
     //getRenderer()->setSize(gme::Vector2(32,32));
     CustomScript *script1 = new CustomScript();
@@ -16,6 +17,8 @@ void Starship::setup(){
     
     addComponent(new gme::RigidBody());
     addComponent(new gme::BoxCollider());
+    
+    getCollider()->addFilterTag("particle");
     getRigidBody()->setElasticity(1);
    
     gme::SoundPlayer *sp = new gme::SoundPlayer();

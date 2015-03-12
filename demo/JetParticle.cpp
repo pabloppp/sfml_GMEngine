@@ -3,6 +3,7 @@
 #include "scriptDePrueba.hpp"
 
 void JetParticle::setup(){
+    
     addTag("particle");
     getRenderer()->setTexture("particle1");
     getRenderer()->setSize(gme::Vector2(8,8));
@@ -15,10 +16,13 @@ void JetParticle::setup(){
     boxCollider->setSize(20,20);
     //boxCollider->setRadius(10);
     boxCollider->addFilterTag("particle");
+    //boxCollider->addFilterTag("player");
     //boxCollider->inheritRotation(true);
-    boxCollider->isTrigger(true);
+    //boxCollider->isTrigger(true);
     addComponent(boxCollider);
     
     addComponent(new scriptDePrueba());
+    
+    gme::GameObject::findWithTag("player").front()->sendMessageUpward("randomMessage", 15);
 }
 

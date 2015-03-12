@@ -62,6 +62,23 @@ void RigidBody::updatep(){
     }
 }
 
+void RigidBody::setSpeed(float x, float y) {
+    b2body->SetLinearVelocity(b2Vec2(x, y));
+}
+
+void RigidBody::setSpeed(Vector2 direction, float force){
+    Vector2 vector = direction.normalized();
+    vector.x *= force;
+    vector.y *= force;
+    setSpeed(vector.x, vector.y);
+}
+
+void RigidBody::setAngularSpeed(float f) {
+
+}
+
+
+
 void RigidBody::push(Vector2 vector){
     b2body->ApplyForceToCenter(b2Vec2(vector.x, vector.y), true);
 }
@@ -99,6 +116,11 @@ void RigidBody::setGravity(bool g){
     }
     else b2body->SetGravityScale(0);
 }
+
+void RigidBody::gravityMultiplier(float f) {
+    b2body->SetGravityScale(f);
+}
+
 
 bool RigidBody::hasGravity(){
     if(b2body->GetGravityScale() != 0) return true;

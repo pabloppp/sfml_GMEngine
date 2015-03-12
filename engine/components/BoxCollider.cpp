@@ -10,6 +10,7 @@
 using namespace gme;
 
 void BoxCollider::setup(){
+    Collider::setup();
     rectangle.setFillColor(sf::Color::Transparent);
     rectangle.setOutlineThickness(1);
     rectangle.setPointCount(4);
@@ -37,8 +38,8 @@ void BoxCollider::update(){
         for (b2ContactEdge *ce = gameObject()->getRigidBody()->b2body->GetContactList(); ce != NULL; ce = ce->next)
         {
             if(ce->contact->IsTouching()){
-                BoxCollider *c = (BoxCollider*)(ce->contact->GetFixtureA()->GetUserData());
-                if(!c->checkTags(this))
+                BoxCollider *c = (BoxCollider*)(ce->contact->GetFixtureB()->GetUserData());
+                //if(!c->checkTags(this))
                     noticeCollision(c);
             }
         }

@@ -21,6 +21,7 @@ public:
     void rotate(float force);
     void rotateImmediate(float force);
     void setGravity(bool g);
+    void gravityMultiplier(float f);
     bool hasGravity();
     void onCollision(Collider *c);
     void isKinematic();
@@ -33,8 +34,11 @@ public:
     float getWeight();
     void setElasticity(float f);
     float getElasticity();
+    void setSpeed(float x, float y);
+    void setSpeed(Vector2 direction, float force);
     Vector2 getSpeed();
     float getAngularSpeed();
+    void setAngularSpeed(float f);
     b2BodyDef b2def;
     b2Body* b2body;
     b2FixtureDef fixtureDef;

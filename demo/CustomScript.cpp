@@ -84,7 +84,7 @@ void CustomScript::onGui(){
 }
 
 void CustomScript::onMessage(std::string m, float f){
-    
+    std::cout << "Recibido mensaje: " << m << " con valor: " << f << std::endl;
 }
 
 void CustomScript::onCollision(gme::Collider* c) {

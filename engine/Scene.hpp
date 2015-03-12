@@ -35,9 +35,7 @@ private:
     float lastTime;
     int testCount;
     float test1;
-    float test2;
-    CollisionGrid cGrid;
-    
+    float test2;    
 };
 
 }
