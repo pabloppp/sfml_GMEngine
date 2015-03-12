@@ -89,15 +89,12 @@ void CustomScript::onMessage(std::string m, float f){
 
 void CustomScript::onCollision(gme::Collider* c) {
     if(getRigidBody() != NULL){
-        if(c->gameObject()->getName().compare("asteroid") == 0){
-            gme::Vector2 relativepos = getCollider()->getRelativePosition(c);
-            /*
-            if(relativepos.x == -1) std::cout << "right" << std::endl;
-            else if(relativepos.x == 1) std::cout << "left" << std::endl;
+        //((gme::BoxCollider*)getCollider())->setSize(30,30);
+        //((gme::BoxCollider*)getCollider())->setCenter(0,-60);
+        if(c->gameObject()->getName().compare("asteroid") == 0){           
             
-            if(relativepos.y == -1) std::cout << "bottom" << std::endl;
-            else if(relativepos.y == 1) std::cout << "top" << std::endl;
-            */
+            gme::Vector2 relativepos = getCollider()->getRelativePosition(c);
+            
             if(relativepos.y == -1){
                 //std::cout << getTransform()->rotation << std::endl;
                 if(getTransform()->rotation > 45 || getTransform()->rotation < -45){

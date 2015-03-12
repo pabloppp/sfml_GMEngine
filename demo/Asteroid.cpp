@@ -5,7 +5,7 @@ void Asteroid::setup() {
     gme::RigidBody *rg = new gme::RigidBody;
     rg->setGravity(false);
     rg->isStatic();
-    rg->setElasticity(1);
+    rg->setElasticity(0);
     
     gme::BoxCollider *bc = new gme::BoxCollider;
     //bc->inheritRotation(true);

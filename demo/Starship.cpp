@@ -16,10 +16,11 @@ void Starship::setup(){
     addComponent(new scriptDePrueba());
     
     addComponent(new gme::RigidBody());
-    addComponent(new gme::BoxCollider());
+    gme::BoxCollider *bc = new gme::BoxCollider();
+    addComponent(bc);
     
     getCollider()->addFilterTag("particle");
-    getRigidBody()->setElasticity(1);
+    //getRigidBody()->setElasticity(1);
    
     gme::SoundPlayer *sp = new gme::SoundPlayer();
     
