@@ -63,8 +63,9 @@ void BoxCollider::setSize(Vector2 s){
     if(gameObject() != NULL && gameObject()->getRigidBody() != NULL){       
         if(gameObject()->getRigidBody()->b2body->GetFixtureList()->GetNext()){
             b2Fixture *fixture = gameObject()->getRigidBody()->b2body->GetFixtureList();
-            gameObject()->getRigidBody()->b2body->DestroyFixture(fixture);
             setup();
+            gameObject()->getRigidBody()->b2body->DestroyFixture(fixture);
+            
         }
     }
 }
@@ -75,8 +76,9 @@ void BoxCollider::setCenter(float x, float y) {
     if(gameObject() != NULL && gameObject()->getRigidBody() != NULL){       
         if(gameObject()->getRigidBody()->b2body->GetFixtureList()->GetNext()){
             b2Fixture *fixture = gameObject()->getRigidBody()->b2body->GetFixtureList();
-            gameObject()->getRigidBody()->b2body->DestroyFixture(fixture);
             setup();
+            gameObject()->getRigidBody()->b2body->DestroyFixture(fixture);
+            
         }
     }
 }
