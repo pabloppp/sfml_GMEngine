@@ -227,6 +227,9 @@ std::vector<GameObject*> GameObject::getChildren(){
 void GameObject::removeChild(GameObject* g){
     for(int i=0;i<children.size();i++){
         if(children.at(i) == g){
+            children.at(i)->parent = NULL;
+            children.at(i)->getTransform()->position.x += getTransform()->position.x;
+            children.at(i)->getTransform()->position.y += getTransform()->position.y;
             children.erase(children.begin()+i);
             return;
         }
