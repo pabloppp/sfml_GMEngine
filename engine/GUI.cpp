@@ -53,6 +53,10 @@ void GUI::box(Vector2 position, Vector2 size, const std::string& text, Origin or
     }
 }
 
+void GUI::box(Vector2 position, Vector2 size, Origin origin, Texture* texture){
+    GUI::box(position, size, "", origin, texture); 
+}
+
 
 void GUI::box(Vector2 position, Vector2 size, const std::string& text, Origin origin, TextureName w){
     Texture *tex = Game::getTexture(w.path);
@@ -177,13 +181,13 @@ void GUI::drawTexture(Vector2 position, TextureName w, Origin origin) {
 
 
 
-GUI::Color GUI::backgroundColor = GUI::Color();
+GUI::Color GUI::backgroundColor = GUI::Color(255,255,255);
 
 GUI::Color GUI::tintColor = GUI::Color(255,255,255);
 
-GUI::Color GUI::outlineColor = GUI::Color(255,255,255);
+GUI::Color GUI::outlineColor = GUI::Color(0,0,0);
 
-GUI::Color GUI::contentColor = GUI::Color(255,255,255);
+GUI::Color GUI::contentColor = GUI::Color(0,0,0);
 
 GUI::Color GUI::red = GUI::Color(255,0,0);
 GUI::Color GUI::green = GUI::Color(0,255,0);

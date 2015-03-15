@@ -13,7 +13,7 @@
 int main() {
     
     //Creamos el juego con las dimensiones de ventana que queramos
-    gme::Game *game = new MyGame(sf::Vector2f(640, 480), "my Game");  
+    gme::Game *game = new MyGame(gme::Vector2(640, 480), "my Game");  
     
     game->run();
     

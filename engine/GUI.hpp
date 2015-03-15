@@ -66,6 +66,7 @@ public:
     static float outlineThickness;
     
     static void box(Vector2 position, Vector2 size, const std::string &text = "", Origin origin = Origin::TopLeft, Texture *texture = NULL);
+    static void box(Vector2 position, Vector2 size, Origin origin, Texture *texture = NULL);
     static void box(Vector2 position, Vector2 size, const std::string &text, Origin origin, TextureName w);
     static void box(Vector2 position, Vector2 size, const std::string &text, TextureName w);
     static void box(Vector2 position, Vector2 size, Origin origin, TextureName w);

@@ -5,6 +5,7 @@ using namespace gme;
 
 Window::Window(int px, int py, std::string s){
     rwindow = new sf::RenderWindow(sf::VideoMode(px, py), s);
+    originalSize = Vector2(px, py); 
 }
 
 Window::~Window(){
@@ -52,6 +53,11 @@ gme::Vector2 Window::getSize(){
     //return rwindow->getSize();
     return gme::Vector2(rwindow->getSize().x, rwindow->getSize().y);
 }
+
+gme::Vector2 Window::getOriginalSize() {
+    return originalSize;
+}
+
 
 sf::RenderWindow *Window::getRWindow(){
     return rwindow;
