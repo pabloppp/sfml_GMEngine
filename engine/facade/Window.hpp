@@ -24,9 +24,11 @@ public:
     gme::Vector2 getSize();
     gme::Vector2 getOriginalSize();
     sf::RenderWindow *getRWindow();
+    void enableFullScreen(bool b);
 private:
     sf::RenderWindow *rwindow;
     gme::Vector2 originalSize;
+    std::string title;
 };
 
 }

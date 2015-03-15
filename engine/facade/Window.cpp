@@ -4,8 +4,9 @@
 using namespace gme;
 
 Window::Window(int px, int py, std::string s){
-    rwindow = new sf::RenderWindow(sf::VideoMode(px, py), s);
+    rwindow = new sf::RenderWindow(sf::VideoMode(px, py), s, sf::Style::Close);
     originalSize = Vector2(px, py); 
+    title = s;
 }
 
 Window::~Window(){
@@ -66,4 +67,14 @@ sf::RenderWindow *Window::getRWindow(){
 void Window::setFrameLimit(int l) {
     rwindow->setFramerateLimit(l);
 }
+
+void Window::enableFullScreen(bool b) {
+    delete rwindow;
+    if(b) 
+        rwindow = new sf::RenderWindow(sf::VideoMode(getOriginalSize().x, getOriginalSize().y), title, sf::Style::Fullscreen);
+    else
+        rwindow = new sf::RenderWindow(sf::VideoMode(getOriginalSize().x, getOriginalSize().y), title, sf::Style::Close);
+
+}
+
 
