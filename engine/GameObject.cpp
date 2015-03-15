@@ -63,9 +63,10 @@ void GameObject::update(){
 }
 
 void GameObject::earlyUpdate() {
-    if(rigidBody != NULL && rigidBody->isActive()) rigidBody->update();
-    if(collider != NULL && collider->isActive() ) collider->update(); 
     if(transform != NULL && transform->isActive()) transform->update();
+    if(collider != NULL && collider->isActive() ) collider->update();  
+    if(rigidBody != NULL && rigidBody->isActive()) rigidBody->update();
+    
 }
 
 

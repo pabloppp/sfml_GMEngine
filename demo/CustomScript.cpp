@@ -80,7 +80,14 @@ CustomScript::~CustomScript(){ //onDestroy
 }
 
 void CustomScript::onGui(){
-    
+    //gme::GUI::backgroundColor = gme::GUI::red;
+    /*gme::GUI::fontSize = 24;
+    gme::GUI::outlineThickness = 1;
+    gme::GUI::box(gme::Vector2(10,10), gme::Vector2(200,50), "MOCOSO" ,gme::GUI::Origin::TopLeft);
+    gme::GUI::fontSize = 12;
+    gme::GUI::label(gme::Vector2(320,0), "Level 1", gme::GUI::Origin::TopCenter);*/
+    //gme::GUI::drawTexture(gme::Vector2(0,0), gme::Vector2(25,50), gme::GUI::TextureName("starship"), gme::GUI::Origin::TopLeft, gme::GUI::ScaleMode::ScaleAndCrop);
+    gme::GUI::drawTexture(gme::Vector2(0,0), gme::GUI::TextureName("starship"));
 }
 
 void CustomScript::onMessage(std::string m, float f){

@@ -13,6 +13,7 @@
       <itemPath>engine/Component.hpp</itemPath>
       <itemPath>demo/CustomScript.hpp</itemPath>
       <itemPath>engine/GMEngine.hpp</itemPath>
+      <itemPath>engine/GUI.hpp</itemPath>
       <itemPath>engine/Game.hpp</itemPath>
       <itemPath>engine/GameObject.hpp</itemPath>
       <itemPath>demo/JetParticle.hpp</itemPath>
@@ -53,6 +54,7 @@
       <itemPath>engine/CollisionGrid.cpp</itemPath>
       <itemPath>engine/Component.cpp</itemPath>
       <itemPath>demo/CustomScript.cpp</itemPath>
+      <itemPath>engine/GUI.cpp</itemPath>
       <itemPath>engine/Game.cpp</itemPath>
       <itemPath>engine/GameObject.cpp</itemPath>
       <itemPath>demo/JetParticle.cpp</itemPath>
@@ -159,6 +161,10 @@
       <item path="engine/Component.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/GMEngine.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GUI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/GUI.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -336,6 +342,10 @@
       <item path="engine/Component.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/GMEngine.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="engine/GUI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="engine/GUI.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
