@@ -8,7 +8,8 @@ void Starship::setup(){
     //AÑADIMOS LOS SCRIPTS Y SE CUSTOMIZAN SI ES NECESARIO
     addTag("player");
     
-    getRenderer()->setTexture("starship");
+    getRenderer()->setTexture("space");
+    getRenderer()->setFrame("ship");
     //getRenderer()->setSize(gme::Vector2(32,32));
     CustomScript *script1 = new CustomScript();
     addComponent(script1);
@@ -30,7 +31,7 @@ void Starship::setup(){
     sp->loop(true);
     addComponent(sp);
     
-    getTransform()->scale = gme::Vector2(3,3);  
+    getTransform()->scale = gme::Vector2(0.8,0.8);  
     
     
 }

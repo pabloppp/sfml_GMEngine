@@ -5,9 +5,9 @@
 void JetParticle::setup(){
     
     addTag("particle");
-    getRenderer()->setTexture("particle1");
-    getRenderer()->setSize(gme::Vector2(8,8));
-    getTransform()->scale = gme::Vector2(3,3);
+    getRenderer()->setTexture("space");
+    getRenderer()->setFrame("star3");
+    getTransform()->scale = gme::Vector2(1,1);
     addComponent(new particleDecay());
     
     addComponent(new gme::RigidBody());

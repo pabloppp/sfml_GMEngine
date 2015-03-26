@@ -4,11 +4,13 @@
 void MyGame::setup(){
     
     //enable debug colliders;
-    debugColliders = true;
+    //debugColliders = true;
     
     //Podemos crear las texturas
     gme::Game::newTexture("demo/resources/starship.png", "starship");
     gme::Game::newTexture("demo/resources/particle1.png", "particle1");
+    gme::Game::newTexture("demo/resources/sprites.png", "dino");
+    gme::Game::newTexture("demo/resources/spaceassets.png", "space");
     
     gme::Game::newSound("demo/resources/in.wav", "sound1");
     

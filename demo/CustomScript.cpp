@@ -87,7 +87,7 @@ void CustomScript::onGui(){
     gme::GUI::fontSize = 12;
     gme::GUI::label(gme::Vector2(320,0), "Level 1", gme::GUI::Origin::TopCenter);*/
     //gme::GUI::drawTexture(gme::Vector2(0,0), gme::Vector2(25,50), gme::GUI::TextureName("starship"), gme::GUI::Origin::TopLeft, gme::GUI::ScaleMode::ScaleAndCrop);
-    gme::GUI::drawTexture(gme::Vector2(0,0), gme::GUI::TextureName("starship"));
+    //gme::GUI::drawTexture(gme::Vector2(0,0), gme::GUI::TextureName("starship"));
 }
 
 void CustomScript::onMessage(std::string m, float f){

@@ -43,9 +43,30 @@ void RigidBody::setup(){
 }
 
 void RigidBody::update(){
-    b2body->SetTransform(b2Vec2(gameObject()->getTransform()->getPosition().x/SCALE, 
-            gameObject()->getTransform()->getPosition().y/SCALE), 
-            gameObject()->getTransform()->getRotation()*PI/180.f);
+    if(gameObject() != NULL && gameObject()->getTransform() != NULL){
+        pivotDisp = Vector2(0,0);
+        if(gameObject()->getRenderer() != NULL && gameObject()->getCollider() != NULL){
+            Vector2 boxSize(0,0);
+            if(dynamic_cast<BoxCollider*>(gameObject()->getCollider())){
+                boxSize = ((BoxCollider*)gameObject()->getCollider())->getSize();
+            }
+            float rot = gameObject()->getTransform()->getRotation()*PI/180.f;
+            pivotDisp = gameObject()->getRenderer()->getDisplacement();
+            pivotDisp.x *= boxSize.x;
+            pivotDisp.y *= boxSize.y;
+            
+            std::cout << "DISP:" << sin(rot)*pivotDisp.x << " " << pivotDisp.y << std::endl;           
+            float yd = (sinf(rot)*pivotDisp.x);
+            float xd = (cosf(rot)*pivotDisp.x);
+            std::cout << "DIFF:" << yd << std::endl;
+            pivotDisp.x = -(sinf(rot)*pivotDisp.y)+xd;
+            pivotDisp.y = (cosf(rot)*pivotDisp.y)+yd;
+            
+        }
+        b2body->SetTransform(b2Vec2((gameObject()->getTransform()->getPosition().x+pivotDisp.x)/SCALE, 
+                (gameObject()->getTransform()->getPosition().y+pivotDisp.y)/SCALE), 
+                gameObject()->getTransform()->getRotation()*PI/180.f);
+    }
     
     b2body->SetLinearDamping(friction*10);
     
@@ -53,16 +74,17 @@ void RigidBody::update(){
 }
 
 void RigidBody::updatep(){
-    if(gameObject()!= NULL){
+    if(gameObject()!= NULL && gameObject()->getTransform() != NULL){
         Vector2 parentDisp(0,0);
         float parentRot = 0;
-        if(gameObject()->getParent() != NULL){
+        if(gameObject()->getParent() != NULL && gameObject()->getParent()->getTransform() != NULL){
             parentDisp = gameObject()->getParent()->getTransform()->getPosition();
             parentRot = gameObject()->getParent()->getTransform()->getRotation();
         }
-        gameObject()->getTransform()->position.x = b2body->GetPosition().x*SCALE - parentDisp.x;
+        
+        gameObject()->getTransform()->position.x = b2body->GetPosition().x*SCALE - parentDisp.x - pivotDisp.x;
 
-        gameObject()->getTransform()->position.y = b2body->GetPosition().y*SCALE - parentDisp.y;
+        gameObject()->getTransform()->position.y = b2body->GetPosition().y*SCALE - parentDisp.y - pivotDisp.y;
         
         if(!fixedRotation) gameObject()->getTransform()->rotation = b2body->GetTransform().q.GetAngle()*180.f/PI - parentRot;
     }

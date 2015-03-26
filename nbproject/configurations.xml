@@ -9,7 +9,6 @@
       <itemPath>engine/gameobjects/Camera.hpp</itemPath>
       <itemPath>engine/components/CircleCollider.hpp</itemPath>
       <itemPath>engine/components/Collider.hpp</itemPath>
-      <itemPath>engine/CollisionGrid.hpp</itemPath>
       <itemPath>engine/Component.hpp</itemPath>
       <itemPath>demo/CustomScript.hpp</itemPath>
       <itemPath>engine/GMEngine.hpp</itemPath>
@@ -34,6 +33,7 @@
       <itemPath>engine/components/Transform.hpp</itemPath>
       <itemPath>engine/facade/Vector2.hpp</itemPath>
       <itemPath>engine/facade/Window.hpp</itemPath>
+      <itemPath>demo/asteroidController.hpp</itemPath>
       <itemPath>demo/mainScene.hpp</itemPath>
       <itemPath>demo/particleDecay.hpp</itemPath>
       <itemPath>demo/scriptDePrueba.hpp</itemPath>
@@ -51,7 +51,6 @@
       <itemPath>engine/components/CircleCollider.cpp</itemPath>
       <itemPath>engine/facade/Clock.cpp</itemPath>
       <itemPath>engine/components/Collider.cpp</itemPath>
-      <itemPath>engine/CollisionGrid.cpp</itemPath>
       <itemPath>engine/Component.cpp</itemPath>
       <itemPath>demo/CustomScript.cpp</itemPath>
       <itemPath>engine/GUI.cpp</itemPath>
@@ -75,6 +74,7 @@
       <itemPath>engine/components/Transform.cpp</itemPath>
       <itemPath>engine/facade/Vector2.cpp</itemPath>
       <itemPath>engine/facade/Window.cpp</itemPath>
+      <itemPath>demo/asteroidController.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>demo/mainScene.cpp</itemPath>
       <itemPath>demo/particleDecay.cpp</itemPath>
@@ -105,11 +105,15 @@
           <standard>8</standard>
           <incDir>
             <pElem>libs/SFML-2.1/include</pElem>
+            <pElem>libs/Box2D/include</pElem>
+            <pElem>libs/json-c</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
             <pElem>libs/SFML-2.1/lib</pElem>
+            <pElem>libs/Box2D/lib</pElem>
+            <pElem>libs/json-c/.libs</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
@@ -117,6 +121,8 @@
             <linkerLibLibItem>sfml-system</linkerLibLibItem>
             <linkerLibLibItem>sfml-audio</linkerLibLibItem>
             <linkerLibLibItem>sfml-network</linkerLibLibItem>
+            <linkerLibLibItem>Box2D</linkerLibLibItem>
+            <linkerLibLibItem>json-c</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -140,6 +146,10 @@
       </item>
       <item path="demo/Starship.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="demo/asteroidController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/asteroidController.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
@@ -151,10 +161,6 @@
       <item path="demo/scriptDePrueba.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/scriptDePrueba.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="engine/CollisionGrid.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="engine/CollisionGrid.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -277,6 +283,7 @@
           <incDir>
             <pElem>libs/SFML-2.1/include</pElem>
             <pElem>libs/Box2D/include</pElem>
+            <pElem>libs/json-c</pElem>
           </incDir>
         </ccTool>
         <fortranCompilerTool>
@@ -290,6 +297,7 @@
           <linkerAddLib>
             <pElem>libs/SFML-2.1/lib</pElem>
             <pElem>libs/Box2D/lib</pElem>
+            <pElem>libs/json-c/.libs</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>sfml-graphics</linkerLibLibItem>
@@ -297,6 +305,7 @@
             <linkerLibLibItem>sfml-system</linkerLibLibItem>
             <linkerLibLibItem>sfml-audio</linkerLibLibItem>
             <linkerLibLibItem>sfml-network</linkerLibLibItem>
+            <linkerLibLibItem>json-c</linkerLibLibItem>
             <linkerLibLibItem>Box2D</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
@@ -321,6 +330,10 @@
       </item>
       <item path="demo/Starship.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="demo/asteroidController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="demo/asteroidController.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="demo/mainScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/mainScene.hpp" ex="false" tool="3" flavor2="0">
@@ -332,10 +345,6 @@
       <item path="demo/scriptDePrueba.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="demo/scriptDePrueba.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="engine/CollisionGrid.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="engine/CollisionGrid.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="engine/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>

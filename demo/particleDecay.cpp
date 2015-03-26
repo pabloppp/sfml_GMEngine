@@ -11,7 +11,14 @@ void particleDecay::update(){
     elapsedTime += deltaTime;
     if(elapsedTime >= 1.0/fps && frameCount < frames){        
         frameCount++;
-        getRenderer()->setFrame(gme::Vector2(frameCount,0));
+        float scalefactor = 0.4+0.4*(frames-frameCount)/frames;
+        float alfa = 255*(frames-frameCount)/frames;
+        getRenderer()->setColor(255,255,255,alfa);
+        getTransform()->scale = gme::Vector2(scalefactor,scalefactor);
+        
+        if(frameCount == 0) getRenderer()->setFrame("star3");
+        else if(frameCount == 2) getRenderer()->setFrame("star2");
+        else if(frameCount == 4) getRenderer()->setFrame("star1");
         elapsedTime = 0;
     }
     if(frameCount >= frames){
