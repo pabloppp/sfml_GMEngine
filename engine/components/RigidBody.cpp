@@ -52,15 +52,15 @@ void RigidBody::update(){
             }
             float rot = gameObject()->getTransform()->getRotation()*PI/180.f;
             pivotDisp = gameObject()->getRenderer()->getDisplacement();
-            pivotDisp.x *= boxSize.x;
-            pivotDisp.y *= boxSize.y;
-            
-            std::cout << "DISP:" << sin(rot)*pivotDisp.x << " " << pivotDisp.y << std::endl;           
-            float yd = (sinf(rot)*pivotDisp.x);
-            float xd = (cosf(rot)*pivotDisp.x);
-            std::cout << "DIFF:" << yd << std::endl;
-            pivotDisp.x = -(sinf(rot)*pivotDisp.y)+xd;
-            pivotDisp.y = (cosf(rot)*pivotDisp.y)+yd;
+            if(pivotDisp.x != 0 || pivotDisp.y != 0){
+                pivotDisp.x *= boxSize.x;
+                pivotDisp.y *= boxSize.y;
+
+                float yd = (sinf(rot)*pivotDisp.x);
+                float xd = (cosf(rot)*pivotDisp.x);
+                pivotDisp.x = -(sinf(rot)*pivotDisp.y)+xd;
+                pivotDisp.y = (cosf(rot)*pivotDisp.y)+yd;
+            }
             
         }
         b2body->SetTransform(b2Vec2((gameObject()->getTransform()->getPosition().x+pivotDisp.x)/SCALE, 

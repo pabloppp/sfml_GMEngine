@@ -7,6 +7,13 @@
 
 using namespace gme;
 
+Renderer::Renderer() : Component() {
+    center.x = 0.5;
+    center.y = 0.5;
+    pivot.x = center.x;
+    pivot.y = center.y;
+}
+
 void Renderer::setup() {
     //drawable = NULL;
     //std::cout << "renderer setup" << std::endl;

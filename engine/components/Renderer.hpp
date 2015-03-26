@@ -11,7 +11,8 @@ namespace gme{
 //class Game;    
     
 class Renderer : public Component{
-public:    
+public: 
+    Renderer();;
     void setup();
     void update();
     void setTexture(Texture &t);
