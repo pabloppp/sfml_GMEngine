@@ -12,6 +12,7 @@ Renderer::Renderer() : Component() {
     center.y = 0.5;
     pivot.x = center.x;
     pivot.y = center.y;
+    drawable = NULL;
 }
 
 void Renderer::setup() {
@@ -27,7 +28,7 @@ void Renderer::update() {
     float rot = 0;
     float ticPercent = Game::ticPercent;
     float invTicPercent = 1-ticPercent;
-    if(gameObject() != NULL){
+    if(gameObject() != NULL && gameObject()->getTransform() != NULL){
         f_pos = gameObject()->getTransform()->getPosition();
         i_pos = gameObject()->getTransform()->o_position;
         
