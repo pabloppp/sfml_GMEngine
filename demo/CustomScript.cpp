@@ -1,10 +1,12 @@
 #include "CustomScript.hpp"
 #include "JetParticle.hpp"
 
+
 //OBLIGATORIOS
 void CustomScript::setup(){
     if(getRigidBody() != NULL) getRigidBody()->setGravity(false);
     timeLapse = 0.1;
+    a = 5;
 }
 
 void CustomScript::update(){
@@ -71,6 +73,7 @@ void CustomScript::update(){
     if(getTransform()->position.x > 640+23) getTransform()->position.x = 0-23;
     else if(getTransform()->position.x < 0-23) getTransform()->position.x = 640+23;
    
+    //std::cout << a << " y " << b << std::endl;
     //std::cout << "GameObjects: " << gme::Game::getCurrentScene()->getGameObjects()->size() << std::endl;
 }
 
@@ -113,6 +116,11 @@ void CustomScript::onCollision(gme::Collider* c) {
         //((gme::BoxCollider*)(getCollider()))->isTrigger(true);
     }
 }
+
+void CustomScript::showMessage(std::string m) {
+    std::cout << "Showing message: " <<  m << std::endl;
+}
+
 
 
 

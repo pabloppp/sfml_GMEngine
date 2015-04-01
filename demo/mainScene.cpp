@@ -22,6 +22,20 @@ void mainScene::setup(){
     gme::GameObject *player = new Starship("starship");
     player->getTransform()->setPosition(gme::Vector2(320, 240));
     
+    //MEGA CUSTOMIZER!!!!
+    player->customize([](gme::GameObject* obj) {
+                
+        CustomScript *customScript = ((CustomScript*)(obj->getComponent<CustomScript*>()));
+        
+        customScript->showMessage("primero");
+        customScript->b = 11;
+        customScript->a = 6;
+        
+    });
+    
+    std::cout << "segundo" << std::endl;
+    std::cout << "tercero" << std::endl;   
+    
     for(int i = 0; i < 10; i++){
         gme::GameObject *ast = new Asteroid("asteroid");
         ast->getTransform()->setPosition(gme::Vector2(rand()%640, rand()%480));
